@@ -1,0 +1,121 @@
+body {
+	font			      : 80% sans-serif, monospace;
+   line-height       : 1.2em;
+}
+
+.forum hr {
+	border            : none;
+	background        : black;
+	height            : 1px;
+}
+
+.forum a { text-decoration : none; font-weight : bold ; color : #005e89;}
+.forum a:visited { color : #895900; }
+.forum a:hover { text-decoration : underline;  }
+.forum .liens { margin-bottom : 10px; } /* Il s'agit de la partie haute, "Revenir à la liste des liens" et "Rechercher" */
+.forum .copyright { text-align : center; font-size : 80%; margin-top : 20px; }
+
+/* Listage des sujets de la page d'accueil */
+
+.forum .sujets {
+   width             : 100%;
+	border-bottom     : 1px solid black;
+	border-collapse   : collapse;
+	text-align        : center;
+}
+.forum .sujets td { padding : 4px; width : 5%; white-space : nowrap;}
+.forum .sujets .colonne-sujet {text-align : left; width : 80%;}
+
+.forum .sujets .titre{
+   font-weight       : bold;
+   background-color  : #EEEEEE;
+	border-top        : 1px solid black;
+	border-bottom     : 1px solid black;
+}
+.forum .couleur1 { background-color : #E0E0E0;}
+.forum .couleur0 { background-color : #EEEEEE;}
+
+.forum .sujet .pages { text-align : right; }
+.forum .aller-a-la-discussion { text-align : right;}
+
+/* Formulaire */
+
+.forum .formulaire {
+   width             : 75%;
+	text-align        : center;
+	border            : 1px solid #CCCCCC;
+   margin-left       : auto;
+   margin-right      : auto;
+	margin-top        : 10px;
+}
+
+.forum .formulaire .titre {
+   font-weight       : bold;
+   background-color  : #EEEEEE;
+	padding           : 3px;
+	margin            : 0px;
+	margin-bottom     : 9px;
+	font-size         : 100%;
+}
+
+.forum .formulaire input { width : 100px; }
+
+.forum .formulaire .champ-titre { width : 250px; }
+
+.forum .formulaire .champ-texte {
+   width             : 95%;
+	height            : 100px;
+}
+
+.forum .memo {
+   width             : 70%;
+   margin-left       : auto;
+   margin-right      : auto;
+   font-size	      : 80%;
+	line-height       : 1em;
+	border-collapse   : collapse;
+}
+
+.forum .memo pre, hr{ margin: 0px; }
+.forum .memo td{
+   vertical-align    : top;
+	border            : 1px solid #CCCCCC;
+	border-top        : none;
+	background        : #F7F7F7;
+	padding           : 3px;
+}
+
+/* Affichage du sujet et des messages*/
+
+.forum .detail-des-messages h2, h3 {
+   display : block;
+   padding : 2px;
+	border-bottom : 1px solid black;
+}
+
+.forum .detail-des-messages .sujet, .message {
+	padding : 5px;
+	text-align : justify;
+	margin : 10px;
+}
+
+.forum .detail-des-messages .sujet { background : #E0E0E0; }
+.forum .detail-des-messages .message { background : #EEEEEE; }
+.forum .detail-des-messages hr {display : none;}
+.forum .detail-des-messages .ligne-auteur{ font-weight : bold; margin-bottom : 3px;}
+.forum .detail-des-messages .texte{ margin : 10px; }
+
+.forum .navigation-par-page {
+   text-align : right;
+   background : #EEEEEE;
+   border-bottom : 1px solid black;
+}
+
+/* Autre */
+
+.forum .footer {
+   border-top : 1px solid black;
+   font-size  : 10px;
+   text-align : center;
+   margin-top : 20px;
+}

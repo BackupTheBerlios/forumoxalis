@@ -1,0 +1,46 @@
+             INSTALL.TXT - Forum Oxalis v0.1.1 - 30/10/2003 
+********************************************************************************
+         Ce fichier est SENSé vous permettre d'installer le forum.
+
+   En cas de problèmes veuillez ne pas me contacter directement mais utiliser 
+         le forum présent sur le site : http://forumoxalis.ehol.org
+********************************************************************************
+
+Vous avez deux solutions, ici figure la plus simple, si vous avez l'habitude des 
+configurations classiques de scripts PHP/MySQL jetez un coup d'oeil à vars.php
+ainsi qu'à doc/forumoxalis.tbl cela devrait suffire.
+
+--------------------------------------------------------------------------------
+
+1. Assurez-vous que vous avez bien les parties nécessaires listées dans le 
+   chapitre 1 du fichier README.txt profitez-en pour prendre connaissance de la 
+   licence d'utilisation.
+
+2. Mettez les fichiers sur votre serveur.
+   (Par l'intermédiaire d'un client FTP la plupart des fois.)
+   
+3. Editez le fichier /vars.php qui contient les variables.
+   
+4. Repérez la première partie copiée ici :
+
+         // Informations propres à la base de données
+         $mysql_server      = "localhost";
+         $mysql_login       = "";
+         $mysql_pass        = "";
+         $mysql_db          = "";  // Base de données
+         $mysql_table       = "forumoxalis";
+   
+   Modifiez ce passage afin de le rendre conforme à vos attentes.
+   > Ne vous occupez pas du reste pour le moment.
+
+5. Exécutez le fichier creertable.php placé dans le répertoire DOC en entrant 
+   son URL dans un navigateur.
+
+6. Si tout s'est bien passé rien ne devrait s'afficher, je vous conseille de 
+   supprimer le fichier. Si vous tentez de lancer le fichier une deuxième fois 
+   un message d'erreur s'affichera.
+   En cas d'échec vérifiez bien les coordonnées de la base de données !
+
+7. Installation terminée !
+
+--------------------------------------------------------------------------------
