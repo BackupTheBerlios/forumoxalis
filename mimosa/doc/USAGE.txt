@@ -1,8 +1,8 @@
-                 USAGE.TXT - Forum Oxalis v0.1.1 - 01/11/2003
+                 USAGE.TXT - Forum Oxalis v0.1.2 - 30/11/2003
 ********************************************************************************
-         Ce fichier décrit sommairement comment utiliser le forum              
+         Ce fichier décrit sommairement comment utiliser le forum
                           et décrit ses fonctions
-******************************************************************************** 
+********************************************************************************
 
   Sommaire :
 
@@ -15,9 +15,11 @@
       a. Informations propres à la base de données
       b. Nombre de X par page
       c. Taille maximum des champs
-      d. Para-SPAM      
-      e. Mémo   
-      f. Mode d'administration  
+      d. Para-SPAM
+      e. Mémo
+      f. Modules
+         1. Administration
+      g. Geler les enregistrements
 
 1. Installation
    Voir le fichier INSTALL.txt
@@ -27,36 +29,36 @@
    Elle se fait par CSS, tout ce dont vous avez besoin se trouve dans layout.css
    Vous ne comprenez rien aux CSS ? Bah...
    http://www.yoyodesign.org/doc/w3c/css2/cover.html
-   Cependant je vous conseillerai plutôt d'éditer le fichier, tout est assez 
+   Cependant je vous conseillerai plutôt d'éditer le fichier, tout est assez
    clair (si vous connaissez deux ou trois mots d'anglais)
 
 
 3. Intégration du forum dans une page déjà existante
-   Deux étapes :   
+   Deux étapes :
 
    a. Première étape
 
-      1 Editez le fichier index.php présent dans l'archive (le fichier que vous 
-        avez téléchargé et décompressé). Repérez la première partie encadrée par 
+      1 Editez le fichier index.php présent dans l'archive (le fichier que vous
+        avez téléchargé et décompressé). Repérez la première partie encadrée par
         <?php ?>
       2 Editez votre fichier à vous et insérez cette partie de code au TOUT
         DEBUT du fichier.
 
    b. Deuxième étape
-        A l'endroit où vous voulez intégrer le forum insérez :   
+        A l'endroit où vous voulez intégrer le forum insérez :
           <div class="forum">
           <?php include "forum.php" ?>
           </div>
 
 4. Fonctions
-   Cette partie décrit les fonctions utilisables en vous expliquant comment 
+   Cette partie décrit les fonctions utilisables en vous expliquant comment
    fonctionne vars.php
 
 
    a. Informations propres à la base de données
-      (il faut écrire les informations entre les guillemets, NE LES RETIREZ PAS 
-      et NE LES AJOUTEZ PAS, laissez comme c'est, éditez les informations 
-      disponibles à l'intérieur   
+      (il faut écrire les informations entre les guillemets, NE LES RETIREZ PAS
+      et NE LES AJOUTEZ PAS, laissez comme c'est, éditez les informations
+      disponibles à l'intérieur
 
       $mysql_server      = "localhost";
         Adresse du serveur MySQL (peut être sql.free.fr par exemple.
@@ -66,25 +68,25 @@
       $mysql_pass        = "";
         Login : nom d'utilisateur
         Pass  : mode passe allant avec l'utilisateur
-        Ces deux informations doivent aussi vous avoir été données 
+        Ces deux informations doivent aussi vous avoir été données
 
 
       $mysql_db          = "";
         Nom de la base de données (très souvent identique à votre login)
 
       $mysql_table       = "forumoxalis";
-        Nom de la table que vous allez utiliser pour le forum (si vous voulez 
+        Nom de la table que vous allez utiliser pour le forum (si vous voulez
         utiliser plusieurs fois ce forum éditez le nom de cette table)
 
-   
+
    b. Nombre de X par page
 
       $sujets_par_page   = 15; // nombre de sujets par page
       $reponses_par_page = 10; // nombre de réponses par page
 
-      Il s'agit du nombre de sujets ou réponses s'affichant à chaque page. Par 
-      exemple, ici si il y avait 20 sujet alors la première page en contiendrait 
-      15 et la deuxième 5. (Cela permet de ne pas avoir des pages trop lourdes à 
+      Il s'agit du nombre de sujets ou réponses s'affichant à chaque page. Par
+      exemple, ici si il y avait 20 sujet alors la première page en contiendrait
+      15 et la deuxième 5. (Cela permet de ne pas avoir des pages trop lourdes à
       charger.)
 
 
@@ -93,8 +95,8 @@
       $taille_max_titre  = 50;
       $taille_max_nom    = 20;
 
-      Les deux valeurs sont en nombre de caractères. Elles permettent de limiter 
-      le nom d'utilisateur ainsi que la taille du titre afin d'éviter de se 
+      Les deux valeurs sont en nombre de caractères. Elles permettent de limiter
+      le nom d'utilisateur ainsi que la taille du titre afin d'éviter de se
       retrouver avec un titre (et donc un tableau) étant très très large.
 
 
@@ -107,7 +109,7 @@
       Permet de remplacer, dans le champ EMAIL, @ . et le -
       Par exemple forumoxalis@ehol.org donnerait : forumoxalis_AT_ehol_POINT_org
 
-      Les robots prenant les emails ne pourraient donc pas utiliser cette 
+      Les robots prenant les emails ne pourraient donc pas utiliser cette
       adresse directement.
 
 
@@ -117,24 +119,50 @@
       $memo              = "<table class='memo'><tr><td>" .
       (quelques lignes supplémentaires, on finit par le point virgule : ";" )
 
-      Le mémo est la partie inférieure rappellant comment mettre en page son 
-      texte (italique, gras, monospace) celui-ci est placé en dessous de la 
-      boîte d'envoie, permettant donc aux utilisateurs d'avoir le mémo sous les 
+      Le mémo est la partie inférieure rappellant comment mettre en page son
+      texte (italique, gras, monospace) celui-ci est placé en dessous de la
+      boîte d'envoie, permettant donc aux utilisateurs d'avoir le mémo sous les
       yeux lors de leur participation au forum.
 
       Le désactiver, remplacer 1 par 0 :
       $afficher_memo     = 0;
 
 
-   f. Mode d'administration
+   f. Modules
 
-      $mode_administration = 0; // 1 : oui --- 0 : non
-      $mode_administration_phrase = "<div class='centrage'>Le forum étant en 
-      maintenance vous ne pouvez poster de messages pour le moment.<br>Nous nous 
+      1. d'administration
+
+      Voici les deux lignes de configuration du module
+
+      $module_administration       = true;
+          Ici on prévient le script que le module d'administration est présent.
+          S'il ne l'est pas **true** devrait être remplacé par **false**.
+
+      $module_administration_pass  = $mysql_pass;
+          On définit le mot de passe qui servira à entrer dans le mode
+          d'administration. Par défaut celui-ci est identique au mot de passe
+          de la BDD. Pour le redéfinir par exemple avec :
+                     mot_de_passe_de_teste
+          veuillez entrer :
+
+          $module_administration_pass  = "mot_de_passe_de_teste";
+
+      Lorsque vous êtes entré en mode administration voici les deux signes
+	présents sur chaque titre :
+          [-] : Permet de supprimer le sujet ou le message (dans le cas d'un sujet
+                cela supprime tous les messages présents à l'intérieur.
+          [M] : Permet de modifier le sujet ou le message.
+
+
+   g. Geler les enregistrements
+
+      $geler_enregistrement		= 0; // 1 : oui --- 0 : non
+      $geler_enregistrement_phrase	= "<div class='information'>Le forum étant
+      en maintenance vous ne pouvez poster de messages pour le moment.<br>Nous nous
       excusons de cette gêne temporaire.</div>";
 
-      Ce mode permet de bloquer temporairement l'ajout de nouveaux messages. Le 
-      temps que l'administrateur fasse une sauvegarde de la base de données ou 
+      Ce mode permet de bloquer temporairement l'ajout de nouveaux messages. Le
+      temps que l'administrateur fasse une sauvegarde de la base de données ou
       encore qu'il y fasse des modifications.
       (Je peux vous assurez que sur un forum actif c'est très utile !)
 

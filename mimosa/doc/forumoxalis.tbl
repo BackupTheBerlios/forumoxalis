@@ -2,6 +2,7 @@
 
 #
 # Structure de la table `forumoxalis`
+# ForumOxalis 0.1.2 -- 30/11/2003
 #
 
 CREATE TABLE `forumoxalis` (
@@ -13,6 +14,7 @@ CREATE TABLE `forumoxalis` (
   `reponse_a_id` int(11) unsigned NOT NULL default '0',
   `titre` varchar(255) NOT NULL default '- pas de titre -',
   `derniereReponse` datetime NOT NULL default '0000-00-00 00:00:00',
+  `md5` varchar(50) NOT NULL default '',
   PRIMARY KEY  (`id`),
   KEY `reponse_a_id` (`reponse_a_id`),
   KEY `derniereReponse` (`derniereReponse`)

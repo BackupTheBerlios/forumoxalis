@@ -1,4 +1,4 @@
-             INSTALL.TXT - Forum Oxalis v0.1.1 - 30/10/2003 
+             INSTALL.TXT - Forum Oxalis v0.1.2 - 30/11/2003
 ********************************************************************************
          Ce fichier est SENSé vous permettre d'installer le forum.
 
